@@ -1,17 +1,21 @@
 #include <stdio.h>
 #include <string.h>
+#include <ctype.h>
 
 int main() {
     char ch;
-    char name[100];
-    printf("\enter name=> ");
-    gets(name);
+    char name[100] = {"Mahin"};
     int length = strlen(name);
-    int i;
+    int i, uppercase = 0, lowercase = 0;
 
-    for (int i = length - 1; i >= 0; i--) {
-        ch=name[i];
-        printf("%c",ch);
+    for (i = 0; i < length; i++) {
+        ch = name[i];
+        if (isupper(ch)) {
+            uppercase++;
+        } else if (islower(ch)) {
+            lowercase++;
+            printf("%c",ch);
+        }
     }
     return 0;
 }
